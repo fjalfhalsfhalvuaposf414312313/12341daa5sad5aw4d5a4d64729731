@@ -86,7 +86,7 @@ function Visualizer:Start()
 
 		local Scaled = ScaleTo(CurrentLoudness, self.Presets.ScaleLoudnessMax, 1)
 
-		local NewScale = Clamp(0.3 + (Scaled * 50), 0.9, 1.5)
+		local NewScale = math.clamp(0.3 + (Scaled * 50), 0.9, 1.5)
 		game:GetService("TweenService"):Create(self.NewScaleValue, TweenInfo.new(0.15), {Value = NewScale}):Play()
 		local CurrentScale = self.NewScaleValue.Value
 		self.VisualizeModel:ScaleTo(CurrentScale)
